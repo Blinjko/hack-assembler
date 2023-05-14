@@ -121,54 +121,7 @@ static void logError(int error_num, const char* message)
 {
     fprintf(stderr, "ERROR: %s\nMessage: %s\n", strerror(error_num), message);
 }
-        /*
-         *
-         * Code gen code
-        char binary_instruction[18] = "0000000000000000\n\0";
-
-        if (Parser_commandType(&parser) == A_COMMAND) {
-            error = generateAInstruction(Parser_symbol(&parser), &binary_instruction[0]); 
-
-            if (error < 0) {
-                logError(errno, "Failed to generate A instruction");
-                Parser_free(&parser);
-                fclose(output_file);
-                return -1;
-            }
-        }
-
-        else if (Parser_commandType(&parser) == C_COMMAND) {
-            error = generateCInstruction(Parser_dest(&parser), 
-                                         Parser_comp(&parser), 
-                                         Parser_jump(&parser), 
-                                         &binary_instruction[0]); 
-
-            if (error < 0) {
-                logError(errno, "Failed to generate C instruction");
-                Parser_free(&parser);
-                fclose(output_file);
-                return -1;
-            }
-        }
-
-        // Add the return, and null terminator
-        binary_instruction[16] = '\n';
-        binary_instruction[17] = '\0';
-
-        // Instruction is generated, time to write it
-
-        size_t bytes_written = fwrite(&binary_instruction[0], sizeof(char), 17, output_file);
-
-        // not enough bytes were written and there was an error
-        if (bytes_written != (sizeof(char) * 17) && ferror(output_file) != 0) {
-            logError(errno, "Failed to write to output file");
-            Parser_free(&parser);
-            fclose(output_file);
-            return -1;
-        }
-
-        */
-
+       
 static int  parseCommands(Parser* parser,
                           SymbolTable* symbol_table,
                           CommandArray* command_array)
