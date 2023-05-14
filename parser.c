@@ -200,6 +200,11 @@ static int Parser_parseCommand(Parser* parser, char* command)
         else if (parser->current_command.type == L_COMMAND) {
 
             char* symbol_token = strtok(command, "()");
+
+            if (symbol_token == NULL) {
+                return -1;
+            }
+
             parser->current_command.symbol = strdup(symbol_token);
 
             if (parser->current_command.symbol == NULL) {
