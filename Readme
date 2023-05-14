@@ -1,0 +1,34 @@
+Hack Assembler Project
+Goal: Create a working Hack Assembler
+
+
+Main Program components
+
+Parser: Parses the assembly into a convienent  datastructure.
+API for the Parser:
+
+enum for instruction type
+
+Structure Parser - Main structure
+hasMoreCommands  - Boolean function
+advance          - Reads the next command and makes it the current.
+commandType      - get the type of the current command
+symbol           - returns the symbol or decimal Xxx of the current command, @Xxx or (Xxx) only useful for A and L commands
+dest             - returns the destination mnumonic in the current C command
+comp             - return the compute mnemonic of the current C command
+jump             - returns the jump mnemonic of the current C command
+
+
+
+Code Translation module:
+
+dest             - Takes the destination mneumonic and translates it to binary
+comp             - Takes the computation mneumonic and translates it to binary
+jump             - Takes the jump mneumonic and translates it to binary
+
+
+Symbol Table Module:
+
+addEntry         - Adds an entry to the symbol table
+contain          - does the given sybol exist in the table
+getAddress       - get the address for the supplied symbol given it exists
